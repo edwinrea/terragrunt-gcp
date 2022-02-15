@@ -1,5 +1,5 @@
 variable "project_id"               {}
-variable "region"                   {}
+# variable "region"                   {}
 variable "machine_type"             {}
 variable "max_nodes"                {}
 variable "environment"              {}
