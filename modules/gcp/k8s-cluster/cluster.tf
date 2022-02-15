@@ -12,7 +12,7 @@ module "gke" {
   ip_range_pods            = local.subnet_pods_ip_range_name
   ip_range_services        = local.subnet_services_ip_range_name
   # create_service_account   = false
-  service_account          = var.terraform_sa_fqdn
+  # service_account          = var.terraform_sa_fqdn
   # enable_private_nodes     = true
   node_pools               = [
     {
@@ -23,7 +23,7 @@ module "gke" {
       disk_size_gb    = 15
       disk_type       = "pd-ssd"
       auto_upgrade    = true
-      service_account = var.terraform_sa_fqdn
+      # service_account = var.terraform_sa_fqdn
     },
   ]
 }
