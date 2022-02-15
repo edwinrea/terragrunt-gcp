@@ -13,6 +13,8 @@ module "gke" {
   # create_service_account   = false
   # service_account          = var.terraform_sa_fqdn
   # enable_private_nodes     = true
+  http_load_balancing        = false
+  horizontal_pod_autoscaling = true
   node_pools               = [
     {
       name            = "main"
