@@ -8,12 +8,12 @@ module "gke" {
   zones                    = var.zones
   network                  = reverse(split("/", data.google_compute_subnetwork.subnet.network))[0]
   subnetwork               = data.google_compute_subnetwork.subnet.name
-  master_ipv4_cidr_block   = var.master_cidr
+  # master_ipv4_cidr_block   = var.master_cidr
   ip_range_pods            = local.subnet_pods_ip_range_name
   ip_range_services        = local.subnet_services_ip_range_name
-  create_service_account   = false
+  # create_service_account   = false
   service_account          = var.terraform_sa_fqdn
-  enable_private_nodes     = true
+  # enable_private_nodes     = true
   node_pools               = [
     {
       name            = "main"
