@@ -1,8 +1,5 @@
 variable "project_id"               {}
 variable "region"                   {}
-variable "zones"                    {
-  type = list(string)
-}
 variable "machine_type"             {}
 variable "max_nodes"                {}
 variable "environment"              {}
