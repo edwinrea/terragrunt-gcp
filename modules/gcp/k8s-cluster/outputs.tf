@@ -6,10 +6,6 @@ output "region" {
   value = module.gke.region
 }
 
-output "zones" {
-  value = var.zones
-}
-
 output "cluster" {
   value = module.gke.name
 }
