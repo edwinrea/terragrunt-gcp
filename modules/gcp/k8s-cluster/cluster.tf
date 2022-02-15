@@ -4,7 +4,9 @@ module "gke" {
   project_id               = var.project_id
   name                     = local.cluster
   regional                 = false
-  region                   = var.region
+  region                     = "us-central1"
+  zones                      = ["us-central1-a", "us-central1-b", "us-central1-f"]
+  # region                   = var.region
   network                  = reverse(split("/", data.google_compute_subnetwork.subnet.network))[0]
   subnetwork               = data.google_compute_subnetwork.subnet.name
   # master_ipv4_cidr_block   = var.master_cidr
