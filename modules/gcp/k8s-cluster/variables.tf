@@ -5,7 +5,6 @@ variable "zones"                    {
 }
 variable "machine_type"             {}
 variable "max_nodes"                {}
-variable "terraform_sa_fqdn"        {}
 variable "environment"              {}
 variable "master_cidr"              {}
 variable "subnet_primary_ip_range"  {}
