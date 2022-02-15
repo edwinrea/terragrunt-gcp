@@ -9,7 +9,7 @@ remote_state {
 }
 
 inputs = {
-  project_id                               = "${get_env("TF_VAR_project_id", "")}"
+  project_id                               = "gke-demo3-edwinrea"
 }
 
 skip = true
