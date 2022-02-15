@@ -4,6 +4,7 @@ module "gke" {
   project_id               = var.project_id
   name                     = local.cluster
   regional                 = false
+  region                   = var.region
   zones                    = var.zones
   network                  = reverse(split("/", data.google_compute_subnetwork.subnet.network))[0]
   subnetwork               = data.google_compute_subnetwork.subnet.name
