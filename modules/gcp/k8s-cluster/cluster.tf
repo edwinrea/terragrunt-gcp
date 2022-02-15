@@ -35,7 +35,7 @@
 
 module "gke" {
   source                     = "terraform-google-modules/kubernetes-engine/google"
-  project_id                 = "<PROJECT ID>"
+  project_id                 = "gke-demo3-edwinrea"
   name                       = "gke-test-1"
   region                     = "us-central1"
   zones                      = ["us-central1-a", "us-central1-b", "us-central1-f"]
@@ -52,14 +52,14 @@ module "gke" {
       name               = "default-node-pool"
       machine_type       = "n1-standard-2"
       min_count          = 1
-      max_count          = 100
+      max_count          = 2
       local_ssd_count    = 0
-      disk_size_gb       = 100
+      disk_size_gb       = 10
       disk_type          = "pd-standard"
       image_type         = "COS"
       auto_repair        = true
       auto_upgrade       = true
-      service_account    = "project-service-account@<PROJECT ID>.iam.gserviceaccount.com"
+      service_account    = "project-service-account@gke-demo3-edwinrea.iam.gserviceaccount.com"
       preemptible        = false
       initial_node_count = 80
     },
