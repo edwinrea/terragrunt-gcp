@@ -15,6 +15,7 @@ module "gke" {
   # enable_private_nodes     = true
   http_load_balancing        = false
   horizontal_pod_autoscaling = true
+  network_policy             = true
   node_pools               = [
     {
       name            = "main"
