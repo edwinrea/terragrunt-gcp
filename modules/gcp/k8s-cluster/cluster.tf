@@ -11,7 +11,7 @@ module "gke" {
   ip_range_pods            = local.subnet_pods_ip_range_name
   ip_range_services        = local.subnet_services_ip_range_name
   # create_service_account   = false
-  # service_account          = var.terraform_sa_fqdn
+  service_account          = var.terraform_sa_fqdn
   # enable_private_nodes     = true
   http_load_balancing        = false
   horizontal_pod_autoscaling = true
@@ -26,6 +26,7 @@ module "gke" {
       disk_type       = "pd-ssd"
       auto_upgrade    = true
       # service_account = var.terraform_sa_fqdn
+      service_account    = "project-service-account@gke-demo3-edwinrea.iam.gserviceaccount.com"
     },
   ]
 }
