@@ -1,6 +1,5 @@
 ## Quick start
 
-
 Configure your GCP access credenctials as environment variables:
 
 ```
