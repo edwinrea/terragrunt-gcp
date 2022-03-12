@@ -7,8 +7,8 @@ module "gke" {
   name                              = "${var.project_id}-gke-cluster"
   network                           = var.net_name
   subnetwork                        = var.subnet_name
-  ip_range_pods                     = "ip-range-pods-${var.env}"
-  ip_range_services                 = "ip-range-services-${var.env}"
+  ip_range_pods                     = "ip-range-pods"
+  ip_range_services                 = "ip-range-services"
   horizontal_pod_autoscaling        = true
   network_policy                    = true
   remove_default_node_pool          = true

@@ -1,5 +1,4 @@
 locals {
-  env              = "stg"
   region           = "us-east4"
   org              = "alpha"
 }
@@ -8,23 +7,16 @@ remote_state {
   backend = "gcs"
   config  = {
     location = "US"
-    #TODO: Definir nomenclatura del proyecto
-
-    #TODO: Definir nomenclatura para el nombre del bucket
-    bucket = "${get_env("TF_VAR_project_id", "")}-${local.env}_terraform-state"
-    
+    project = "${get_env("TF_VAR_project_id", "")}"
+    bucket = "${get_env("TF_VAR_project_id", "")}_terraform-state"
     prefix = "${path_relative_to_include()}/terraform.tfstate"
-    
-    #TODO: Definir como se setea la credencial del sa
     credentials = "${get_env("GCP_CREDENTIAL", "")}"
-    
   }
 }
 
 inputs = {
   #Common
   credentials              = "${get_env("GCP_CREDENTIAL", "")}"
-  env                      = local.env
   org                      = local.org
   region                   = local.region
   zone                     = "${local.region}-a"

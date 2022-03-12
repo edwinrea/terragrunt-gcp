@@ -35,7 +35,7 @@ data "google_compute_subnetwork" "subnet" {
 }
 
 resource "google_compute_router" "main" {
-  name    = var.env
+  name    = "${var.project_id}-router"
   network = module.vpc-module.network_name
   project   = var.project_id
   region = var.region

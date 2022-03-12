@@ -2,7 +2,6 @@ variable "project_id"        {}
 variable "db_password"       {
   sensitive   = true
 }
-variable "env"               {}
 variable "org"               {}
 variable "private_network"   {}
 variable "region"            {}

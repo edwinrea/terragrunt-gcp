@@ -1,5 +1,4 @@
 variable "org"                {}
-variable "env"                {}
 variable "master_cidr"        {}
 variable "net_name"           {}
 variable "subnet_name"        {}

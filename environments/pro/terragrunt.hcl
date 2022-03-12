@@ -1,5 +1,4 @@
 locals {
-  env              = "pro"
   region           = "us-east4"
   org              = "alpha"
 }
@@ -11,7 +10,7 @@ remote_state {
     #TODO: Definir nomenclatura del proyecto
 
     #TODO: Definir nomenclatura para el nombre del bucket
-    bucket = "${get_env("TF_VAR_project_id", "")}-${local.env}_terraform-state"
+    bucket = "${get_env("TF_VAR_project_id", "")}_terraform-state"
     
     prefix = "${path_relative_to_include()}/terraform.tfstate"
     
@@ -24,7 +23,6 @@ remote_state {
 inputs = {
   #Common
   credentials              = "${get_env("GCP_CREDENTIAL", "")}"
-  env                      = local.env
   org                      = local.org
   region                   = local.region
   zone                     = "${local.region}-a"

@@ -5,7 +5,7 @@ provider "google-beta" {
 
 resource "google_compute_global_address" "private_ip_address" {
   provider      = google-beta
-  name          = "${var.project_id}-${var.env}-sql-private-ip-${random_id.db_name_suffix.hex}"
+  name          = "${var.project_id}-sql-private-ip-${random_id.db_name_suffix.hex}"
   purpose       = "VPC_PEERING"
   address_type  = "INTERNAL"
   prefix_length = 16
