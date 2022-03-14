@@ -1,6 +1,5 @@
 locals {
-  region           = "us-east4"
-  org              = "alpha"
+  region           = "us-central1"
 }
 
 remote_state {
@@ -17,7 +16,6 @@ remote_state {
 inputs = {
   #Common
   credentials              = "${get_env("GCP_CREDENTIAL", "")}"
-  org                      = local.org
   region                   = local.region
   zone                     = "${local.region}-a"
   zones                    = ["${local.region}-a"]
@@ -29,6 +27,7 @@ inputs = {
   subnet_pods_ip_range     = "10.61.128.0/17"
   
   #Module GKE
+  regional                 = true
   master_cidr              = "172.17.0.0/28"
   machine_type             = "e2-small"
   disk_size_gb             = 10
