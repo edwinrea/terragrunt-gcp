@@ -32,6 +32,9 @@ jobs:
       #     tf_actions_comment: true
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Docker image
+        run: |
+          cd ..
       - name: 'Terragrunt Init'
         uses: the-commons-project/terragrunt-github-actions@master
         with:
