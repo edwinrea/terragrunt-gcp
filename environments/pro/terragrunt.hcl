@@ -5,19 +5,19 @@ locals {
 
 remote_state {
   backend = "gcs"
-  config  = {
-    location = "US"
-    #TODO: Definir nomenclatura del proyecto
+  # config  = {
+  #   location = "US"
+  #   #TODO: Definir nomenclatura del proyecto
 
-    #TODO: Definir nomenclatura para el nombre del bucket
-    bucket = "${get_env("TF_VAR_project_id", "")}_terraform-state"
+  #   #TODO: Definir nomenclatura para el nombre del bucket
+  #   bucket = "${get_env("TF_VAR_project_id", "")}_terraform-state"
     
-    prefix = "${path_relative_to_include()}/terraform.tfstate"
+  #   prefix = "${path_relative_to_include()}/terraform.tfstate"
     
-    #TODO: Definir como se setea la credencial del sa
-    credentials = "${get_env("GCP_CREDENTIAL", "")}"
+  #   #TODO: Definir como se setea la credencial del sa
+  #   credentials = "${get_env("GCP_CREDENTIAL", "")}"
     
-  }
+  # }
 }
 
 inputs = {
