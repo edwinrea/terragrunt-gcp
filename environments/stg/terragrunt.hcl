@@ -1,21 +1,29 @@
 locals {
-  region           = "us-central1"
+  region           = "us-east4"
+  org              = "alpha"
 }
 
 remote_state {
   backend = "gcs"
   config  = {
     location = "US"
-    project = "${get_env("TF_VAR_project_id", "")}"
+    #TODO: Definir nomenclatura del proyecto
+
+    #TODO: Definir nomenclatura para el nombre del bucket
     bucket = "${get_env("TF_VAR_project_id", "")}_terraform-state"
+    
     prefix = "${path_relative_to_include()}/terraform.tfstate"
+    
+    #TODO: Definir como se setea la credencial del sa
     credentials = "${get_env("GCP_CREDENTIAL", "")}"
+    
   }
 }
 
 inputs = {
   #Common
   credentials              = "${get_env("GCP_CREDENTIAL", "")}"
+  org                      = local.org
   region                   = local.region
   zone                     = "${local.region}-a"
   zones                    = ["${local.region}-a"]
@@ -27,7 +35,6 @@ inputs = {
   subnet_pods_ip_range     = "10.61.128.0/17"
   
   #Module GKE
-  regional                 = true
   master_cidr              = "172.17.0.0/28"
   machine_type             = "e2-small"
   disk_size_gb             = 10
