@@ -18,8 +18,8 @@ jobs:
       - id: 'auth'
         uses: 'google-github-actions/auth@v0'
         with:
-          # workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-          service_account: ${{ secrets.GCP_CREDENTIAL }}
+          workload_identity_provider: ${{ secrets.GCP_CREDENTIAL }}
+          service_account: 'gcp-sa-tf-admin@alpha-siged-education-pro.iam.gserviceaccount.com'
       - name: 'Checkout'
         uses: actions/checkout@master
       # - name: 'Terragrunt Format'
