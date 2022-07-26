@@ -81,6 +81,7 @@ jobs:
         uses: autero1/action-terragrunt@v1.1.0
         with:
           terragrunt_version: 0.21.13
+          terraform_version: ${{ env.tf_version }}
       - name: Interact with Terragrunt
         run: terragrunt --version
       - name: 'Terragrunt Init'
