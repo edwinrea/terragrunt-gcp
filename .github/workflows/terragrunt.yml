@@ -64,8 +64,6 @@
 #       #   env:
 #       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-
-
 name: Example workflow
 
 on: [push]
@@ -83,15 +81,3 @@ jobs:
           terragrunt_version: 0.21.13
       - name: Interact with Terragrunt
         run: terragrunt --version
-      - name: 'Terragrunt Init'
-        uses: the-commons-project/terragrunt-github-actions@1.0.6
-        with:
-          terraform_version: ${{ env.tf_version }}
-          tf_actions_version: ${{ env.tf_version }}
-          tg_actions_version: ${{ env.tg_version }}
-          tf_actions_subcommand: 'init'
-          # tf_actions_working_dir: ${{ env.tf_working_dir }}
-          tf_actions_working_dir: 'test/'
-          tf_actions_comment: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
