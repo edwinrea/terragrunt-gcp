@@ -81,3 +81,5 @@ jobs:
           terragrunt_version: 0.21.13
       - name: Interact with Terragrunt
         run: terragrunt --version
+      - name: Interact with Terragrunt init
+        run: terragrunt run-all init
