@@ -5,6 +5,7 @@ env:
   tf_version: 'latest'
   tg_version: 'latest'
   tf_working_dir: '.'
+  TF_WORKSPACE: './environments'
   TF_VAR_project_id: 'alpha-siged-education-pro'
   GCP_SA: 'gcp-sa-tf-admin@alpha-siged-education-pro.iam.gserviceaccount.com'
   BUCKET_NAME: 'trivium-prod-bkp'
@@ -45,8 +46,7 @@ jobs:
           tg_actions_version: ${{ env.tg_version }}
           tf_actions_binary: 'terraform'
           tf_actions_subcommand: 'validate'
-          # tf_actions_working_dir: ${{ env.tf_working_dir }}
-          tf_actions_working_dir: '.'
+          tf_actions_working_dir: ${{ env.tf_working_dir }}
           tf_actions_comment: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
