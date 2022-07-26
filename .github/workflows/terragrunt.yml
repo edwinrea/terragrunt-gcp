@@ -37,7 +37,7 @@ jobs:
           # tf_actions_working_dir: ${{ env.tf_working_dir }}
           tf_actions_working_dir: 'environments/pro/'
           tf_actions_comment: true
-          args: '-backend-config="token=${{ secrets.GCP_CREDENTIAL }}"
+          args: '-backend-config="token=${{ secrets.GCP_CREDENTIAL }}"'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - name: 'Terragrunt Validate'
