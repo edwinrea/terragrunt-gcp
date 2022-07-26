@@ -4,7 +4,7 @@ on:
 env:
   tf_version: 'latest'
   tg_version: 'latest'
-  tf_working_dir: '.'
+  tf_working_dir: 'test'
   TF_VAR_project_id: 'alpha-siged-education-pro'
   GCP_SA: 'gcp-sa-tf-admin@alpha-siged-education-pro.iam.gserviceaccount.com'
   BUCKET_NAME: 'trivium-prod-bkp'
