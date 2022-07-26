@@ -82,4 +82,4 @@ jobs:
       - name: Interact with Terragrunt
         run: terragrunt --version
       - name: Interact with Terragrunt init
-        run: terragrunt run-all init
+        run: terragrunt init
