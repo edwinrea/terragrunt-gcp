@@ -33,12 +33,4 @@ inputs = {
   subnet_primary_ip_range  = "172.20.0.0/20"
   subnet_services_ip_range = "10.62.0.0/22"
   subnet_pods_ip_range     = "10.61.128.0/17"
-
-  #Module GKE
-  master_cidr        = "172.17.0.0/28"
-  machine_type       = "e2-small"
-  disk_size_gb       = 10
-  min_count          = 1
-  max_count          = 3
-  initial_node_count = 2
 }
