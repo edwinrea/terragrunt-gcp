@@ -9,8 +9,7 @@ env:
   GCP_SA: 'gcp-sa-tf-admin@alpha-siged-education-pro.iam.gserviceaccount.com'
   BUCKET_NAME: 'trivium-prod-bkp'
   GCP_CREDENTIAL: ${{ secrets.GCP_CREDENTIAL }}
-  TF_WORKING_DIR: .
-
+  # TF_WORKING_DIR: .
 jobs:
   terragrunt:
     name: 'Terragrunt'
