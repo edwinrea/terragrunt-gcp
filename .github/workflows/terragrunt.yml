@@ -32,7 +32,7 @@ jobs:
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: 'Terragrunt Init'
-        uses:   uses: the-commons-project/terragrunt-github-actions@1.0.6
+        uses: the-commons-project/terragrunt-github-actions@1.0.6
         with:
           tf_actions_version: ${{ env.tf_version }}
           tg_actions_version: ${{ env.tg_version }}
