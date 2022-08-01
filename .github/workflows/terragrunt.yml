@@ -74,13 +74,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        uses: actions/checkout@master
       - name: Setup Terragrunt
-        uses: autero1/action-terragrunt@v1.1.0
+        uses: the-commons-project/terragrunt-github-actions@master
         with:
-          terragrunt_version: 0.21.13
+          tf_actions_version: ${{ env.tf_version }}
+          tg_actions_version: ${{ env.tg_version }}
+          tf_actions_binary: 'terraform'
+          tf_actions_subcommand: 'fmt'
+          tf_actions_working_dir: ${{ env.tf_working_dir }}
+          tf_actions_comment: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Interact with Terragrunt
         run: terragrunt --version
       - name: Interact with Terragrunt init
