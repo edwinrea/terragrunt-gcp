@@ -68,6 +68,11 @@ name: Example workflow
 
 on: [push]
 
+env:
+  tf_version: 'latest'
+  tg_version: 'latest'
+  tf_working_dir: '.'
+
 jobs:
   example:
     name: Example Terragrunt interaction
@@ -86,7 +91,7 @@ jobs:
           tf_actions_comment: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Interact with Terragrunt
-        run: terragrunt --version
-      - name: Interact with Terragrunt init
-        run: terragrunt init
+      # - name: Interact with Terragrunt
+      #   run: terragrunt --version
+      # - name: Interact with Terragrunt init
+      #   run: terragrunt init
