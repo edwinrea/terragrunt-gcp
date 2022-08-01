@@ -3,11 +3,11 @@ locals {
 }
 
 module "vpc-module" {
-  source       = "terraform-google-modules/network/google"  
+  source       = "terraform-google-modules/network/google"
   version      = "5.0.0"
   project_id   = var.project_id
   network_name = "${local.org}-${var.project_id}-vpc"
-  subnets      = [
+  subnets = [
     {
       subnet_name   = "${local.org}-${var.project_id}-${var.region}-subnet"
       subnet_ip     = var.subnet_ip
@@ -29,23 +29,23 @@ module "vpc-module" {
 }
 
 data "google_compute_subnetwork" "subnet" {
-  name = reverse(split("/", module.vpc-module.subnets_names[0]))[0]
-  project   = var.project_id
-  region = var.region
+  name    = reverse(split("/", module.vpc-module.subnets_names[0]))[0]
+  project = var.project_id
+  region  = var.region
 }
 
 resource "google_compute_router" "main" {
   name    = "${var.project_id}-router"
   network = module.vpc-module.network_name
-  project   = var.project_id
-  region = var.region
+  project = var.project_id
+  region  = var.region
 }
 
 resource "google_compute_router_nat" "main" {
   name                               = "main"
   router                             = google_compute_router.main.name
   nat_ip_allocate_option             = "AUTO_ONLY"
-  source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES" 
-  project   = var.project_id
-  region = var.region
+  source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
+  project                            = var.project_id
+  region                             = var.region
 }
