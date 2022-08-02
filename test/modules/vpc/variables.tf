@@ -7,3 +7,4 @@ variable "project_id" {
     default = "alpha-siged-education-pro"
 }
 variable "region" {}
+variable "credentials" { "${get_env("GCP_CREDENTIAL", "")}"}
