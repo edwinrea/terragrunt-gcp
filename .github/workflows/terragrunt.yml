@@ -161,7 +161,7 @@ jobs:
         cd test
         terragrunt -v
 
-    Initialize a new or existing Terragrunt working directory by creating initial files, loading any remote state, downloading modules, etc.
+    # Initialize a new or existing Terragrunt working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terragrunt Init
       run: terragrunt init --terragrunt-non-interactive
       env:
