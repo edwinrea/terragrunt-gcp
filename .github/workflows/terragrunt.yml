@@ -172,6 +172,8 @@ jobs:
       run: terragrunt init --terragrunt-non-interactive
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
+      run: |
+        ls
 
     # # Generates an execution plan for Terragrunt
     # - name: Terragrunt Plan
