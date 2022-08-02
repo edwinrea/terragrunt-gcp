@@ -22,7 +22,7 @@ locals {
 
 inputs = {
   #Common
-  # credentials = "${get_env("GCP_CREDENTIAL", "")}"
+  credentials = "${get_env("GCP_CREDENTIAL", "")}"
   org         = local.org
   region      = local.region
   zone        = "${local.region}-a"
