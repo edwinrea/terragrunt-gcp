@@ -127,11 +127,7 @@
 
 name: 'Terragrunt CI'
 
-on:
-  push:
-    branches:
-    - main
-  pull_request:
+on: [push]
 
 jobs:
   Terragrunt:
