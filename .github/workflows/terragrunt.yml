@@ -170,6 +170,7 @@ jobs:
     - name: Terragrunt Init
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
+        TF_VAR_project_id: alpha-siged-education-pro
       run: |
         cd test
         terragrunt run-all init --terragrunt-non-interactive
