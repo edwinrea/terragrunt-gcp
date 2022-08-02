@@ -172,7 +172,7 @@ jobs:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
         TF_VAR_project_id: alpha-siged-education-pro
       run: |
-        cd environments/pro/vpc
+        cd alpha/environments/pro/vpc
         terragrunt run-all init --terragrunt-non-interactive
     
     - name: Terragrunt Plan
@@ -180,7 +180,7 @@ jobs:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
         TF_VAR_project_id: alpha-siged-education-pro
       run: |
-        cd environments/pro/vpc
+        cd alpha/environments/pro/vpc
         terragrunt run-all plan --terragrunt-non-interactive
     
     # - name: Terragrunt Apply
