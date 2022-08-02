@@ -17,3 +17,4 @@ jobs:
         uses: dflook/terraform-plan@v1
         with:
           path: terraform
+          credentials: ${{ secrets.GCP_CREDENTIAL }}
