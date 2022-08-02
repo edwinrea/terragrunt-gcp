@@ -8,6 +8,7 @@ jobs:
     name: Create a plan for an example terraform configuration
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GCP_CREDENTIAL: ${{ secrets.GCP_CREDENTIAL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
