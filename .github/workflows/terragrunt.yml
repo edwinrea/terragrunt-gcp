@@ -155,6 +155,8 @@ jobs:
     - name: Setup Terraform wrapper path
       run: which terraform
     - name: Setup Terragrunt v0.38.4
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }
       run: |
         sudo wget -q -O /bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/v0.38.4/terragrunt_linux_amd64"
         sudo chmod +x /bin/terragrunt
