@@ -1,5 +1,6 @@
 provider "google" {
 #   credentials = get_env("GCP_CREDENTIAL", "")
+#   credentials = 
   project     = "alpha-siged-education-pro"
   region      = "us-central1"
   zone        = "us-central1-a"
