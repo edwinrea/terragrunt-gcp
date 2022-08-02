@@ -144,7 +144,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    # Install the latest version of Terragrunt CLI and configure the Terragrunt CLI configuration file with a Terragrunt Cloud user API token
+    # Install the latest version of Terragrunt CLI and configure the Terragrunt CLI configuration file with a Terragrunt Cloud user API toke
     - name: Setup Terraform v1.2.6
       uses: hashicorp/setup-Terraform@v1
       with:
