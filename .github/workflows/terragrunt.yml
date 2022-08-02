@@ -1,44 +1,105 @@
-# name: 'Terragrunt GitHub Actions'
-# on:
-#   - push
+# # name: 'Terragrunt GitHub Actions'
+# # on:
+# #   - push
+# # env:
+# #   tf_version: 'latest'
+# #   tg_version: 'latest'
+# #   tf_working_dir: 'test'
+# #   TF_VAR_project_id: 'alpha-siged-education-pro'
+# #   GCP_SA: 'gcp-sa-tf-admin@alpha-siged-education-pro.iam.gserviceaccount.com'
+# #   BUCKET_NAME: 'trivium-prod-bkp'
+# #   GCP_CREDENTIAL: ${{ secrets.GCP_CREDENTIAL }}
+# # jobs:
+# #   terragrunt:
+# #     name: 'Terragrunt'
+# #     runs-on: ubuntu-latest
+# #     steps:
+# #       - name: 'Checkout'
+# #         uses: actions/checkout@master
+# #       # - id: 'auth'
+# #       #   uses: 'google-github-actions/auth@v0'
+# #       #   with:
+# #       #     credentials_json: ${{ secrets.GCP_CREDENTIAL }}
+# #       # - name: 'Terragrunt Format'
+# #       #   uses: the-commons-project/terragrunt-github-actions@master
+# #       #   with:
+# #       #     tf_actions_version: ${{ env.tf_version }}
+# #       #     tg_actions_version: ${{ env.tg_version }}
+# #       #     tf_actions_binary: 'terraform'
+# #       #     tf_actions_subcommand: 'fmt'
+# #       #     tf_actions_working_dir: ${{ env.tf_working_dir }}
+# #       #     tf_actions_comment: true
+# #       #   env:
+# #       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# #       - name: 'Terragrunt Init'
+# #         uses: the-commons-project/terragrunt-github-actions@1.0.6
+# #         with:
+# #           tf_actions_version: ${{ env.tf_version }}
+# #           tg_actions_version: ${{ env.tg_version }}
+# #           tf_actions_subcommand: 'init'
+# #           # tf_actions_working_dir: ${{ env.tf_working_dir }}
+# #           tf_actions_working_dir: 'test/'
+# #           tf_actions_comment: true
+# #         env:
+# #           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# #       # - name: 'Terragrunt Validate'
+# #       #   uses: the-commons-project/terragrunt-github-actions@master
+# #       #   with:
+# #       #     tf_actions_version: ${{ env.tf_version }}
+# #       #     tg_actions_version: ${{ env.tg_version }}
+# #       #     tf_actions_binary: 'terraform'
+# #       #     tf_actions_subcommand: 'validate'
+# #       #     tf_actions_working_dir: ${{ env.tf_working_dir }}
+# #       #     tf_actions_comment: true
+# #       #   env:
+# #       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# #       # - name: 'Terragrunt Plan'
+# #       #   uses: the-commons-project/terragrunt-github-actions@master
+# #       #   with:
+# #       #     tf_actions_version: ${{ env.tf_version }}
+# #       #     tg_actions_version: ${{ env.tg_version }}
+# #       #     tf_actions_subcommand: 'plan'
+# #       #     tf_actions_working_dir: ${{ env.tf_working_dir }}
+# #       #     tf_actions_comment: true
+# #       #   env:
+# #       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+# name: Example workflow
+
+
+# on: [push]
+
+
 # env:
 #   tf_version: 'latest'
 #   tg_version: 'latest'
-#   tf_working_dir: 'test'
-#   TF_VAR_project_id: 'alpha-siged-education-pro'
-#   GCP_SA: 'gcp-sa-tf-admin@alpha-siged-education-pro.iam.gserviceaccount.com'
-#   BUCKET_NAME: 'trivium-prod-bkp'
-#   GCP_CREDENTIAL: ${{ secrets.GCP_CREDENTIAL }}
+#   tf_working_dir: 'test/vpc'
+
 # jobs:
-#   terragrunt:
-#     name: 'Terragrunt'
+#   example:
+#     name: Example Terragrunt interaction
 #     runs-on: ubuntu-latest
 #     steps:
-#       - name: 'Checkout'
+#       - name: Checkout
 #         uses: actions/checkout@master
-#       # - id: 'auth'
-#       #   uses: 'google-github-actions/auth@v0'
-#       #   with:
-#       #     credentials_json: ${{ secrets.GCP_CREDENTIAL }}
-#       # - name: 'Terragrunt Format'
-#       #   uses: the-commons-project/terragrunt-github-actions@master
-#       #   with:
-#       #     tf_actions_version: ${{ env.tf_version }}
-#       #     tg_actions_version: ${{ env.tg_version }}
-#       #     tf_actions_binary: 'terraform'
-#       #     tf_actions_subcommand: 'fmt'
-#       #     tf_actions_working_dir: ${{ env.tf_working_dir }}
-#       #     tf_actions_comment: true
-#       #   env:
-#       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       - name: Setup Format
+#         uses: the-commons-project/terragrunt-github-actions@master
+#         with:
+#           tf_actions_version: ${{ env.tf_version }}
+#           tg_actions_version: ${{ env.tg_version }}
+#           tf_actions_binary: 'terraform'
+#           tf_actions_subcommand: 'fmt'
+#           tf_actions_working_dir: ${{ env.tf_working_dir }}
+#           tf_actions_comment: true
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #       - name: 'Terragrunt Init'
-#         uses: the-commons-project/terragrunt-github-actions@1.0.6
+#         uses: the-commons-project/terragrunt-github-actions@master
 #         with:
 #           tf_actions_version: ${{ env.tf_version }}
 #           tg_actions_version: ${{ env.tg_version }}
 #           tf_actions_subcommand: 'init'
-#           # tf_actions_working_dir: ${{ env.tf_working_dir }}
-#           tf_actions_working_dir: 'test/'
+#           tf_actions_working_dir: ${{ env.tf_working_dir }}
 #           tf_actions_comment: true
 #         env:
 #           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -53,74 +114,13 @@
 #       #     tf_actions_comment: true
 #       #   env:
 #       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#       # - name: 'Terragrunt Plan'
-#       #   uses: the-commons-project/terragrunt-github-actions@master
-#       #   with:
-#       #     tf_actions_version: ${{ env.tf_version }}
-#       #     tg_actions_version: ${{ env.tg_version }}
-#       #     tf_actions_subcommand: 'plan'
-#       #     tf_actions_working_dir: ${{ env.tf_working_dir }}
-#       #     tf_actions_comment: true
-#       #   env:
-#       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-name: Example workflow
-
-
-on: [push]
-
-
-env:
-  tf_version: 'latest'
-  tg_version: 'latest'
-  tf_working_dir: 'test/vpc'
-
-jobs:
-  example:
-    name: Example Terragrunt interaction
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: Setup Format
-        uses: the-commons-project/terragrunt-github-actions@master
-        with:
-          tf_actions_version: ${{ env.tf_version }}
-          tg_actions_version: ${{ env.tg_version }}
-          tf_actions_binary: 'terraform'
-          tf_actions_subcommand: 'fmt'
-          tf_actions_working_dir: ${{ env.tf_working_dir }}
-          tf_actions_comment: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: 'Terragrunt Init'
-        uses: the-commons-project/terragrunt-github-actions@master
-        with:
-          tf_actions_version: ${{ env.tf_version }}
-          tg_actions_version: ${{ env.tg_version }}
-          tf_actions_subcommand: 'init'
-          tf_actions_working_dir: ${{ env.tf_working_dir }}
-          tf_actions_comment: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: 'Terragrunt Validate'
-      #   uses: the-commons-project/terragrunt-github-actions@master
-      #   with:
-      #     tf_actions_version: ${{ env.tf_version }}
-      #     tg_actions_version: ${{ env.tg_version }}
-      #     tf_actions_binary: 'terraform'
-      #     tf_actions_subcommand: 'validate'
-      #     tf_actions_working_dir: ${{ env.tf_working_dir }}
-      #     tf_actions_comment: true
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: 'Terragrunt Plan'
-        uses: the-commons-project/terragrunt-github-actions@master
-        with:
-          tf_actions_version: ${{ env.tf_version }}
-          tg_actions_version: ${{ env.tg_version }}
-          tf_actions_subcommand: 'plan'
-          tf_actions_working_dir: ${{ env.tf_working_dir }}
-          tf_actions_comment: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       - name: 'Terragrunt Plan'
+#         uses: the-commons-project/terragrunt-github-actions@master
+#         with:
+#           tf_actions_version: ${{ env.tf_version }}
+#           tg_actions_version: ${{ env.tg_version }}
+#           tf_actions_subcommand: 'plan'
+#           tf_actions_working_dir: ${{ env.tf_working_dir }}
+#           tf_actions_comment: true
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
