@@ -162,16 +162,16 @@ jobs:
         sudo wget -q -O /bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/v0.38.4/terragrunt_linux_amd64"
         sudo chmod +x /bin/terragrunt
         cd test
-        terragrunt run-all init --terragrunt-non-interactive
-        terragrunt run-all plan --terragrunt-non-interactive
-        terragrunt run-all apply --terragrunt-non-interactive
-        terragrunt run-all destroy --terragrunt-non-interactive
+        #terragrunt run-all init --terragrunt-non-interactive
+        #terragrunt run-all plan --terragrunt-non-interactive
+        #terragrunt run-all apply --terragrunt-non-interactive
+        #terragrunt run-all destroy --terragrunt-non-interactive
 
     # Initialize a new or existing Terragrunt working directory by creating initial files, loading any remote state, downloading modules, etc.
-    # - name: Terragrunt Init
-    #   run: terragrunt init --terragrunt-non-interactive
-    #   env:
-    #     GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
+    - name: Terragrunt Init
+      run: terragrunt init --terragrunt-non-interactive
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
 
     # # Generates an execution plan for Terragrunt
     # - name: Terragrunt Plan
