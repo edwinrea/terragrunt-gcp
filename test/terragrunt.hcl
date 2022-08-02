@@ -20,6 +20,18 @@ locals {
 #   }
 # }
 
+remote_state {
+  backend = "gcs"
+  config  = {
+    location = "US"
+    project = "${get_env("TF_VAR_project_id", "")}"
+    bucket = "${get_env("TF_VAR_project_id", "")}_terraform-state"
+    prefix = "${path_relative_to_include()}/terraform.tfstate"
+    credentials = "${get_env("GCP_CREDENTIAL", "")}"
+  }
+}
+
+
 inputs = {
   #Common
   credentials = "${get_env("GCP_CREDENTIAL", "")}"

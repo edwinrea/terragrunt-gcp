@@ -1,7 +1,7 @@
-# terraform {
-#   backend "gcs" {
-#   }
-# }
+terraform {
+  backend "gcs" {
+  }
+}
 
 locals {
   net_name                      = "${var.org}-${var.project_id}-vpc"
