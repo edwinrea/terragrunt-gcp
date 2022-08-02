@@ -191,10 +191,10 @@ jobs:
         cd alpha/environments/pro/vpc
         terragrunt run-all apply --terragrunt-non-interactive
     
-    # - name: Terragrunt Destroy
-    #   env:
-    #     GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
-    #     TF_VAR_project_id: alpha-siged-education-pro
-    #   run: |
-    #     cd alpha/environments/pro/vpc
-    #     terragrunt run-all destroy --terragrunt-non-interactive
+    - name: Terragrunt Destroy
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
+        TF_VAR_project_id: alpha-siged-education-pro
+      run: |
+        cd alpha/environments/pro/vpc
+        terragrunt run-all destroy --terragrunt-non-interactive
