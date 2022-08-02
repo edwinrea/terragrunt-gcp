@@ -160,6 +160,7 @@ jobs:
         sudo chmod +x /bin/terragrunt
         cd test
         terragrunt run-all init
+        terragrunt run-all plan
 
     # Initialize a new or existing Terragrunt working directory by creating initial files, loading any remote state, downloading modules, etc.
     # - name: Terragrunt Init
