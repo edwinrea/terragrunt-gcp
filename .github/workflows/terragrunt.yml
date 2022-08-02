@@ -182,6 +182,14 @@ jobs:
       run: |
         cd test
         terragrunt run-all plan --terragrunt-non-interactive
+    
+    - name: Terragrunt Apply
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
+        TF_VAR_project_id: alpha-siged-education-pro
+      run: |
+        cd test
+        terragrunt run-all apply --terragrunt-non-interactive
 
 
     # # Generates an execution plan for Terragrunt
