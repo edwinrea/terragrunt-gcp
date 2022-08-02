@@ -185,6 +185,7 @@ jobs:
         TF_VAR_db_username_demo: trivium_demo
         TF_VAR_db_password_demo: 3X2DkGYPcT2ZPrp
         BUCKET_NAME: trivium-prod-bkp
+        GCP_SA: gcp-sa-tf-admin@alpha-siged-education-pro.iam.gserviceaccount.com
       run: |
         cd alpha/environments/pro
         terragrunt run-all init --terragrunt-non-interactive
@@ -200,6 +201,7 @@ jobs:
         TF_VAR_db_username_demo: trivium_demo
         TF_VAR_db_password_demo: 3X2DkGYPcT2ZPrp
         BUCKET_NAME: trivium-prod-bkp
+        GCP_SA: gcp-sa-tf-admin@alpha-siged-education-pro.iam.gserviceaccount.com
       run: |
         cd alpha/environments/pro
         terragrunt run-all plan --terragrunt-non-interactive
