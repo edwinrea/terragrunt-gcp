@@ -158,10 +158,17 @@ jobs:
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
         TF_VAR_project_id: alpha-siged-education-pro
+        TF_VAR_db_username_woodlands: trivium_woodlands
+        TF_VAR_db_password_woodlands: wX1cP9LLstrq6vJ
+        TF_VAR_db_username_staging: trivium_staging
+        TF_VAR_db_password_staging: eBHB2B9V76zSJwr
+        TF_VAR_db_username_demo: trivium_demo
+        TF_VAR_db_password_demo: 3X2DkGYPcT2ZPrp
+
       run: |
         sudo wget -q -O /bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/v0.38.4/terragrunt_linux_amd64"
         sudo chmod +x /bin/terragrunt
-        cd test
+        cd alpha/environments/pro
         #terragrunt run-all plan --terragrunt-non-interactive
         #terragrunt run-all apply --terragrunt-non-interactive
         #terragrunt run-all destroy --terragrunt-non-interactive
@@ -171,30 +178,54 @@ jobs:
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
         TF_VAR_project_id: alpha-siged-education-pro
+        TF_VAR_db_username_woodlands: trivium_woodlands
+        TF_VAR_db_password_woodlands: wX1cP9LLstrq6vJ
+        TF_VAR_db_username_staging: trivium_staging
+        TF_VAR_db_password_staging: eBHB2B9V76zSJwr
+        TF_VAR_db_username_demo: trivium_demo
+        TF_VAR_db_password_demo: 3X2DkGYPcT2ZPrp
       run: |
-        cd alpha/environments/pro/vpc
+        cd alpha/environments/pro
         terragrunt run-all init --terragrunt-non-interactive
     
     - name: Terragrunt Plan
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
         TF_VAR_project_id: alpha-siged-education-pro
+        TF_VAR_db_username_woodlands: trivium_woodlands
+        TF_VAR_db_password_woodlands: wX1cP9LLstrq6vJ
+        TF_VAR_db_username_staging: trivium_staging
+        TF_VAR_db_password_staging: eBHB2B9V76zSJwr
+        TF_VAR_db_username_demo: trivium_demo
+        TF_VAR_db_password_demo: 3X2DkGYPcT2ZPrp
       run: |
-        cd alpha/environments/pro/vpc
+        cd alpha/environments/pro
         terragrunt run-all plan --terragrunt-non-interactive
     
-    - name: Terragrunt Apply
-      env:
-        GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
-        TF_VAR_project_id: alpha-siged-education-pro
-      run: |
-        cd alpha/environments/pro/vpc
-        terragrunt run-all apply --terragrunt-non-interactive
+    # - name: Terragrunt Apply
+    #   env:
+    #     GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
+    #     TF_VAR_project_id: alpha-siged-education-pro
+    #     TF_VAR_db_username_woodlands: trivium_woodlands
+    #     TF_VAR_db_password_woodlands: wX1cP9LLstrq6vJ
+    #     TF_VAR_db_username_staging: trivium_staging
+    #     TF_VAR_db_password_staging: eBHB2B9V76zSJwr
+    #     TF_VAR_db_username_demo: trivium_demo
+    #     TF_VAR_db_password_demo: 3X2DkGYPcT2ZPrp
+    #   run: |
+    #     cd alpha/environments/pro
+    #     terragrunt run-all apply --terragrunt-non-interactive
     
-    - name: Terragrunt Destroy
-      env:
-        GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
-        TF_VAR_project_id: alpha-siged-education-pro
-      run: |
-        cd alpha/environments/pro/vpc
-        terragrunt run-all destroy --terragrunt-non-interactive
+    # - name: Terragrunt Destroy
+    #   env:
+    #     GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
+    #     TF_VAR_project_id: alpha-siged-education-pro
+    #     TF_VAR_db_username_woodlands: trivium_woodlands
+    #     TF_VAR_db_password_woodlands: wX1cP9LLstrq6vJ
+    #     TF_VAR_db_username_staging: trivium_staging
+    #     TF_VAR_db_password_staging: eBHB2B9V76zSJwr
+    #     TF_VAR_db_username_demo: trivium_demo
+    #     TF_VAR_db_password_demo: 3X2DkGYPcT2ZPrp
+    #   run: |
+    #     cd alpha/environments/pro
+    #     terragrunt run-all destroy --terragrunt-non-interactive
