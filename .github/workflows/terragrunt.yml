@@ -184,6 +184,7 @@ jobs:
         TF_VAR_db_password_staging: eBHB2B9V76zSJwr
         TF_VAR_db_username_demo: trivium_demo
         TF_VAR_db_password_demo: 3X2DkGYPcT2ZPrp
+        BUCKET_NAME: trivium-prod-bkp
       run: |
         cd alpha/environments/pro
         terragrunt run-all init --terragrunt-non-interactive
@@ -198,6 +199,7 @@ jobs:
         TF_VAR_db_password_staging: eBHB2B9V76zSJwr
         TF_VAR_db_username_demo: trivium_demo
         TF_VAR_db_password_demo: 3X2DkGYPcT2ZPrp
+        BUCKET_NAME: trivium-prod-bkp
       run: |
         cd alpha/environments/pro
         terragrunt run-all plan --terragrunt-non-interactive
@@ -212,6 +214,7 @@ jobs:
     #     TF_VAR_db_password_staging: eBHB2B9V76zSJwr
     #     TF_VAR_db_username_demo: trivium_demo
     #     TF_VAR_db_password_demo: 3X2DkGYPcT2ZPrp
+    #     BUCKET_NAME: trivium-prod-bkp
     #   run: |
     #     cd alpha/environments/pro
     #     terragrunt run-all apply --terragrunt-non-interactive
@@ -226,6 +229,7 @@ jobs:
     #     TF_VAR_db_password_staging: eBHB2B9V76zSJwr
     #     TF_VAR_db_username_demo: trivium_demo
     #     TF_VAR_db_password_demo: 3X2DkGYPcT2ZPrp
+    #     BUCKET_NAME: trivium-prod-bkp
     #   run: |
     #     cd alpha/environments/pro
     #     terragrunt run-all destroy --terragrunt-non-interactive
