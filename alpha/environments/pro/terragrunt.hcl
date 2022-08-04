@@ -54,12 +54,12 @@ inputs = {
   master_cidr              = "172.17.0.0/28"
   machine_type             = "e2-small"
   disk_size_gb             = 30
-  min_count                = 2
-  max_count                = 10
-  initial_node_count       = 2
+  min_count                = 1
+  max_count                = 1
+  initial_node_count       = 1
   image_type               = "COS_CONTAINERD"
 
   #Module DISK_NFS
-  nfs_disk_size            = 50
+  nfs_disk_size            = 10
   disk_name                = "gce-nfs-disk-stg"
 }
