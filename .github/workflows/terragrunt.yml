@@ -206,23 +206,7 @@ jobs:
     #     cd alpha/environments/pro
     #     terragrunt run-all plan --terragrunt-non-interactive
     
-    # - name: Terragrunt Apply
-    #   env:
-    #     GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
-    #     TF_VAR_project_id: alpha-siged-education-pro
-    #     TF_VAR_db_username_woodlands: trivium_woodlands
-    #     TF_VAR_db_password_woodlands: wX1cP9LLstrq6vJ
-    #     TF_VAR_db_username_staging: trivium_staging
-    #     TF_VAR_db_password_staging: eBHB2B9V76zSJwr
-    #     TF_VAR_db_username_demo: trivium_demo
-    #     TF_VAR_db_password_demo: 3X2DkGYPcT2ZPrp
-    #     BUCKET_NAME: trivium-prod-bkp
-    #     GCP_SA: gcp-sa-tf-admin@alpha-siged-education-pro.iam.gserviceaccount.com
-    #   run: |
-    #     cd alpha/environments/pro
-    #     terragrunt run-all apply --terragrunt-non-interactive
-    
-    - name: Terragrunt Destroy
+    - name: Terragrunt Apply
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
         TF_VAR_project_id: alpha-siged-education-pro
@@ -236,4 +220,20 @@ jobs:
         GCP_SA: gcp-sa-tf-admin@alpha-siged-education-pro.iam.gserviceaccount.com
       run: |
         cd alpha/environments/pro
-        terragrunt run-all destroy --terragrunt-non-interactive
+        terragrunt run-all apply --terragrunt-non-interactive
+    
+    # - name: Terragrunt Destroy
+    #   env:
+    #     GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
+    #     TF_VAR_project_id: alpha-siged-education-pro
+    #     TF_VAR_db_username_woodlands: trivium_woodlands
+    #     TF_VAR_db_password_woodlands: wX1cP9LLstrq6vJ
+    #     TF_VAR_db_username_staging: trivium_staging
+    #     TF_VAR_db_password_staging: eBHB2B9V76zSJwr
+    #     TF_VAR_db_username_demo: trivium_demo
+    #     TF_VAR_db_password_demo: 3X2DkGYPcT2ZPrp
+    #     BUCKET_NAME: trivium-prod-bkp
+    #     GCP_SA: gcp-sa-tf-admin@alpha-siged-education-pro.iam.gserviceaccount.com
+    #   run: |
+    #     cd alpha/environments/pro
+    #     terragrunt run-all destroy --terragrunt-non-interactive
