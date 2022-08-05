@@ -207,6 +207,7 @@ jobs:
     #     terragrunt run-all plan --terragrunt-non-interactive
     
     - name: Terragrunt Apply
+      continue-on-error: true
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL }}
         TF_VAR_project_id: alpha-siged-education-pro
@@ -221,6 +222,7 @@ jobs:
       run: |
         cd alpha/environments/pro
         terragrunt run-all apply --terragrunt-non-interactive
+        
     
     - name: Terragrunt Destroy
       env:
