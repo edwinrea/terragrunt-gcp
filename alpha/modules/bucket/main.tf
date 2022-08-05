@@ -6,7 +6,7 @@ resource "google_storage_bucket" "auto-expire" {
   versioning {
       enabled = true
   }
-  force_destroy = false
+  force_destroy = true
 
 
   lifecycle_rule {
