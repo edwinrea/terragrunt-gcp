@@ -173,7 +173,7 @@ jobs:
         #terragrunt run-all apply --terragrunt-non-interactive
         #terragrunt run-all destroy --terragrunt-non-interactive
 
-    # Initialize a new or existing Terragrunt working directory by creating initial files, loading any remote state, downloading modules, etc.
+    # Initialize a new or existing Terragrunt working directory by creating initial files,loading any remote state, downloading modules, etc.
     - name: Terragrunt Init
       continue-on-error: true
       env:
